@@ -1,0 +1,181 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2023-11-15 22:13:27.157806",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "h_section",
+  "column_break_tiax",
+  "company",
+  "supervisor_name",
+  "column_break_zauy",
+  "naming_series",
+  "posting_date",
+  "project_details_section",
+  "cost_center",
+  "work_details",
+  "column_break_bwsl",
+  "warehouse",
+  "workers_details_section",
+  "workers_details",
+  "section_break_bdbx",
+  "column_break_somy",
+  "column_break_ngqz",
+  "gross_pay",
+  "tab_2_tab",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "column_break_tiax",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Series",
+   "options": "SE.YY.###",
+   "reqd": 1
+  },
+  {
+   "default": "Today",
+   "fieldname": "posting_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Posting Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "tab_2_tab",
+   "fieldtype": "Tab Break",
+   "label": "Tab 2"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Site Entry",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "project_details_section",
+   "fieldtype": "Section Break",
+   "label": "Project Details"
+  },
+  {
+   "description": "Users must create a cost center for each project, and the cost center itself is considered a project",
+   "fieldname": "cost_center",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Cost Center ( Project )",
+   "options": "Cost Center",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_bwsl",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "warehouse",
+   "fieldtype": "Link",
+   "label": "Project Warehouse",
+   "options": "Warehouse",
+   "reqd": 1
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_zauy",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "h_section",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "workers_details_section",
+   "fieldtype": "Section Break",
+   "label": "Workers Details"
+  },
+  {
+   "fieldname": "workers_details",
+   "fieldtype": "Table",
+   "label": "Workers",
+   "options": "Workers Details",
+   "reqd": 1
+  },
+  {
+   "fieldname": "supervisor_name",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Supervisor Name",
+   "options": "Employee",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_bdbx",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_somy",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_ngqz",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "gross_pay",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Gross Pay",
+   "options": "Currency"
+  },
+  {
+   "fieldname": "work_details",
+   "fieldtype": "Data",
+   "label": "Work Details",
+   "reqd": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2023-11-15 22:52:09.873372",
+ "modified_by": "Administrator",
+ "module": "Aabha Homes",
+ "name": "Site Entry",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "track_seen": 1
+}
