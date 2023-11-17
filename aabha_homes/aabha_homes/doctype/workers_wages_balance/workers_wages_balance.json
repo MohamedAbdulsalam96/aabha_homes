@@ -1,0 +1,126 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2023-11-17 09:43:44.537852",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "company",
+  "column_break_qies",
+  "naming_series",
+  "date",
+  "section_break_tuip",
+  "cost_center",
+  "column_break_zuln",
+  "worker_name",
+  "section_break_ovhf",
+  "balance_amount",
+  "column_break_joec",
+  "paid_amount",
+  "section_break_iifl",
+  "pending_balance",
+  "column_break_kixg"
+ ],
+ "fields": [
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company"
+  },
+  {
+   "fieldname": "column_break_qies",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "options": "WB.YY.###"
+  },
+  {
+   "fieldname": "section_break_tuip",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "cost_center",
+   "fieldtype": "Link",
+   "label": "Cost Center ( Project )",
+   "options": "Cost Center"
+  },
+  {
+   "fieldname": "column_break_zuln",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "worker_name",
+   "fieldtype": "Link",
+   "label": "Worker Name",
+   "options": "Employee"
+  },
+  {
+   "fieldname": "section_break_ovhf",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "balance_amount",
+   "fieldtype": "Currency",
+   "label": "Balance Amount"
+  },
+  {
+   "fieldname": "column_break_joec",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "paid_amount",
+   "fieldtype": "Currency",
+   "label": "Paid Amount"
+  },
+  {
+   "fieldname": "section_break_iifl",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "pending_balance",
+   "fieldtype": "Currency",
+   "label": "Pending Balance"
+  },
+  {
+   "fieldname": "column_break_kixg",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Date"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2023-11-17 09:51:03.589532",
+ "modified_by": "Administrator",
+ "module": "Aabha Homes",
+ "name": "Workers Wages Balance",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

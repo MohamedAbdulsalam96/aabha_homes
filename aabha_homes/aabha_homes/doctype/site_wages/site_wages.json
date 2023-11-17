@@ -1,0 +1,135 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2023-11-17 08:44:27.514832",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "company",
+  "column_break_qgze",
+  "naming_series",
+  "section_break_tkcx",
+  "column_break_wyka",
+  "cost_center",
+  "get_site_entry",
+  "column_break_rvwr",
+  "posting_date",
+  "amended_from",
+  "section_break_zqsp",
+  "site_wages_details",
+  "section_break_eavn",
+  "site_wages_project_wise_total"
+ ],
+ "fields": [
+  {
+   "fieldname": "column_break_wyka",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_rvwr",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Series",
+   "options": "SW.YY.###",
+   "reqd": 1
+  },
+  {
+   "default": "Today",
+   "fieldname": "posting_date",
+   "fieldtype": "Data",
+   "label": "Posting Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company",
+   "reqd": 1
+  },
+  {
+   "fieldname": "cost_center",
+   "fieldtype": "Link",
+   "label": "Cost Center ( Project )",
+   "options": "Cost Center",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_qgze",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_tkcx",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Site Wages",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "get_site_entry",
+   "fieldtype": "Button",
+   "label": "Get Site Entry"
+  },
+  {
+   "fieldname": "section_break_zqsp",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "site_wages_details",
+   "fieldtype": "Table",
+   "label": "Site Wages Details",
+   "options": "Site Wages Details"
+  },
+  {
+   "fieldname": "section_break_eavn",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "site_wages_project_wise_total",
+   "fieldtype": "Table",
+   "label": "Site Wages Project Wise Total",
+   "options": "Site Wages Project Wise Total"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2023-11-17 09:12:20.234884",
+ "modified_by": "Administrator",
+ "module": "Aabha Homes",
+ "name": "Site Wages",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "track_seen": 1
+}

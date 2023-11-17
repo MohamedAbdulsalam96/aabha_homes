@@ -1,6 +1,6 @@
 {
  "charts": [],
- "content": "[{\"id\":\"HUYP7mKthH\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Aabha Homes</span>\",\"col\":12}},{\"id\":\"yV5o4c1Pjt\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Site Entry\",\"col\":3}},{\"id\":\"_YjUvVvBYE\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Estimation\",\"col\":3}}]",
+ "content": "[{\"id\":\"HUYP7mKthH\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Aabha Homes</span>\",\"col\":12}},{\"id\":\"ebdJ6Eta7C\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Site Worker Assignment\",\"col\":3}},{\"id\":\"yV5o4c1Pjt\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Site Entry\",\"col\":3}},{\"id\":\"OgEE10M6NA\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Subcontracting Entry\",\"col\":3}},{\"id\":\"kzy0DWZMrW\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Site Wages\",\"col\":3}},{\"id\":\"LpJajwJcvx\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Workers Wages Balance\",\"col\":3}},{\"id\":\"3nZLh4g0V6\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Material Consumption Entry\",\"col\":3}},{\"id\":\"X8AKVMwat_\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Material Request\",\"col\":3}},{\"id\":\"TOPEptmaP1\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Purchase Receipt\",\"col\":3}},{\"id\":\"htxTb6Wz4g\",\"type\":\"card\",\"data\":{\"card_name\":\"Purchase\",\"col\":4}},{\"id\":\"rCs39QUo2c\",\"type\":\"card\",\"data\":{\"card_name\":\"Settings\",\"col\":4}}]",
  "creation": "2023-11-15 22:39:41.841020",
  "custom_blocks": [],
  "docstatus": 0,
@@ -12,8 +12,115 @@
  "indicator_color": "green",
  "is_hidden": 0,
  "label": "Aabha Homes",
- "links": [],
- "modified": "2023-11-15 23:00:19.283593",
+ "links": [
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Settings",
+   "link_count": 1,
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Aabha Homes Settings",
+   "link_count": 0,
+   "link_to": "Aabha Homes Settings",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Purchase",
+   "link_count": 8,
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Material Request",
+   "link_count": 0,
+   "link_to": "Material Request",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Purchase Order",
+   "link_count": 0,
+   "link_to": "Purchase Order",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Purchase Receipt",
+   "link_count": 0,
+   "link_to": "Purchase Receipt",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Purchase Invoice",
+   "link_count": 0,
+   "link_to": "Purchase Invoice",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Payment Entry",
+   "link_count": 0,
+   "link_to": "Payment Entry",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Journal Entry",
+   "link_count": 0,
+   "link_to": "Journal Entry",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Accounts Payable",
+   "link_count": 0,
+   "link_to": "Accounts Payable",
+   "link_type": "Report",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Accounts Payable Summary",
+   "link_count": 0,
+   "link_to": "Accounts Payable Summary",
+   "link_type": "Report",
+   "onboard": 0,
+   "type": "Link"
+  }
+ ],
+ "modified": "2023-11-17 10:08:11.244463",
  "modified_by": "Administrator",
  "module": "Aabha Homes",
  "name": "Aabha Homes",
@@ -28,8 +135,16 @@
   {
    "color": "Grey",
    "doc_view": "List",
-   "label": "Estimation",
-   "link_to": "Estimation",
+   "label": "Workers Wages Balance",
+   "link_to": "Workers Wages Balance",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Site Wages",
+   "link_to": "Site Wages",
    "stats_filter": "[]",
    "type": "DocType"
   },
@@ -38,6 +153,46 @@
    "doc_view": "List",
    "label": "Site Entry",
    "link_to": "Site Entry",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Material Consumption Entry",
+   "link_to": "Material Consumption Entry",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Site Worker Assignment",
+   "link_to": "Site Worker Assignment",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Material Request",
+   "link_to": "Material Request",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Subcontracting Entry",
+   "link_to": "Subcontracting Entry",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Purchase Receipt",
+   "link_to": "Purchase Receipt",
    "stats_filter": "[]",
    "type": "DocType"
   }

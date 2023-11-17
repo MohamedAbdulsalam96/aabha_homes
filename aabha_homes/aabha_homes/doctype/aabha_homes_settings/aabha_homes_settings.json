@@ -1,0 +1,61 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2023-11-17 10:05:04.374774",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "wages_settings_section",
+  "wages_payable_account",
+  "column_break_etsy",
+  "wages_expense_account"
+ ],
+ "fields": [
+  {
+   "fieldname": "wages_settings_section",
+   "fieldtype": "Section Break",
+   "label": "Wages Settings"
+  },
+  {
+   "fieldname": "wages_payable_account",
+   "fieldtype": "Link",
+   "label": "Wages Payable Account",
+   "options": "Account"
+  },
+  {
+   "fieldname": "column_break_etsy",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "wages_expense_account",
+   "fieldtype": "Link",
+   "label": "Wages Expense Account",
+   "options": "Account"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "issingle": 1,
+ "links": [],
+ "modified": "2023-11-17 10:05:04.374774",
+ "modified_by": "Administrator",
+ "module": "Aabha Homes",
+ "name": "Aabha Homes Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

@@ -1,0 +1,54 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2023-11-17 08:21:04.717581",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "number_column",
+  "skill",
+  "number",
+  "remarks"
+ ],
+ "fields": [
+  {
+   "fieldname": "number_column",
+   "fieldtype": "Column Break",
+   "label": "Number"
+  },
+  {
+   "fieldname": "skill",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Skill",
+   "options": "\nMason\nHelper\nPlumber\nWelder\nOther Worker",
+   "reqd": 1
+  },
+  {
+   "fieldname": "number",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Number",
+   "reqd": 1
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Remarks"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2023-11-17 08:21:04.717581",
+ "modified_by": "Administrator",
+ "module": "Aabha Homes",
+ "name": "Subcontracting Entry Details",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

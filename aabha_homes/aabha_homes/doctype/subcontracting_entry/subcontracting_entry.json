@@ -1,0 +1,117 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2023-11-17 08:13:18.718238",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "company",
+  "cost_center",
+  "supervisor_name",
+  "column_break_nebc",
+  "status",
+  "naming_series",
+  "date",
+  "amended_from",
+  "workers_details_section",
+  "subcontracting_entry_details"
+ ],
+ "fields": [
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Company",
+   "options": "Company",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_nebc",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Open\nCompleted"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "options": "SE.YY.###"
+  },
+  {
+   "default": "Today",
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Subcontracting Entry",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "cost_center",
+   "fieldtype": "Link",
+   "label": "Cost Center ( Project )",
+   "options": "Cost Center",
+   "reqd": 1
+  },
+  {
+   "fieldname": "supervisor_name",
+   "fieldtype": "Link",
+   "label": "Supervisor Name",
+   "options": "Employee"
+  },
+  {
+   "fieldname": "workers_details_section",
+   "fieldtype": "Section Break",
+   "label": "Workers Details"
+  },
+  {
+   "fieldname": "subcontracting_entry_details",
+   "fieldtype": "Table",
+   "label": "Subcontracting Workers Details",
+   "options": "Subcontracting Entry Details"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2023-11-17 08:38:45.878382",
+ "modified_by": "Administrator",
+ "module": "Aabha Homes",
+ "name": "Subcontracting Entry",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "track_seen": 1
+}
