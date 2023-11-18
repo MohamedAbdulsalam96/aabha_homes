@@ -23,13 +23,13 @@
    "fieldtype": "Link",
    "in_list_view": 1,
    "label": "State",
-   "options": "State"
+   "options": "Worker State"
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2023-11-16 23:16:59.923575",
+ "modified": "2023-11-18 08:20:20.019423",
  "modified_by": "Administrator",
  "module": "Aabha Homes",
  "name": "Worker Assignment Details",
