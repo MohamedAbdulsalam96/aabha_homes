@@ -13,13 +13,13 @@
   "company",
   "supervisor_name",
   "column_break_zauy",
+  "status",
   "naming_series",
   "posting_date",
   "project_details_section",
   "cost_center",
-  "work_details",
   "column_break_bwsl",
-  "warehouse",
+  "work_details",
   "workers_details_section",
   "workers_details",
   "section_break_bdbx",
@@ -37,7 +37,6 @@
   {
    "fieldname": "naming_series",
    "fieldtype": "Select",
-   "in_list_view": 1,
    "label": "Series",
    "options": "SE.YY.###",
    "reqd": 1
@@ -81,13 +80,6 @@
   {
    "fieldname": "column_break_bwsl",
    "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "warehouse",
-   "fieldtype": "Link",
-   "label": "Project Warehouse",
-   "options": "Warehouse",
-   "reqd": 1
   },
   {
    "fieldname": "company",
@@ -148,12 +140,19 @@
    "fieldtype": "Data",
    "label": "Work Details",
    "reqd": 1
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Open\nCompleted",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2023-11-15 22:52:09.873372",
+ "modified": "2023-11-18 16:22:09.323944",
  "modified_by": "Administrator",
  "module": "Aabha Homes",
  "name": "Site Entry",
