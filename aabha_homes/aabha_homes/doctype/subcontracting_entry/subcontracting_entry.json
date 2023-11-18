@@ -11,6 +11,7 @@
   "company",
   "cost_center",
   "supervisor_name",
+  "subcontractor_name",
   "column_break_nebc",
   "status",
   "naming_series",
@@ -84,12 +85,19 @@
    "fieldtype": "Table",
    "label": "Subcontracting Workers Details",
    "options": "Subcontracting Entry Details"
+  },
+  {
+   "fieldname": "subcontractor_name",
+   "fieldtype": "Link",
+   "label": "Subcontractor Name",
+   "options": "Supplier",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2023-11-17 08:38:45.878382",
+ "modified": "2023-11-18 11:15:00.051054",
  "modified_by": "Administrator",
  "module": "Aabha Homes",
  "name": "Subcontracting Entry",
