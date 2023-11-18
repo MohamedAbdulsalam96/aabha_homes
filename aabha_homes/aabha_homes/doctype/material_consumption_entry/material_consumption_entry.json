@@ -9,8 +9,16 @@
  "engine": "InnoDB",
  "field_order": [
   "company",
+  "supervisor_name",
+  "cost_center",
+  "get_from_purchase_receipt",
   "column_break_izvw",
   "naming_series",
+  "status",
+  "posting_date",
+  "time",
+  "section_break_gjlc",
+  "material_consumption_details",
   "amended_from"
  ],
  "fields": [
@@ -33,6 +41,49 @@
    "options": "MC.YY.###"
   },
   {
+   "fieldname": "supervisor_name",
+   "fieldtype": "Link",
+   "label": "Supervisor Name",
+   "options": "Employee"
+  },
+  {
+   "default": "Today",
+   "fieldname": "posting_date",
+   "fieldtype": "Date",
+   "label": "Posting Date",
+   "reqd": 1
+  },
+  {
+   "default": "Now",
+   "fieldname": "time",
+   "fieldtype": "Time",
+   "label": "Time"
+  },
+  {
+   "fieldname": "cost_center",
+   "fieldtype": "Link",
+   "label": "Cost Center ( Project )",
+   "options": "Cost Center",
+   "reqd": 1
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Open\nIssued",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_gjlc",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "material_consumption_details",
+   "fieldtype": "Table",
+   "label": "Material Consumption Details",
+   "options": "Material Consumption Details"
+  },
+  {
    "fieldname": "amended_from",
    "fieldtype": "Link",
    "label": "Amended From",
@@ -40,12 +91,17 @@
    "options": "Material Consumption Entry",
    "print_hide": 1,
    "read_only": 1
+  },
+  {
+   "fieldname": "get_from_purchase_receipt",
+   "fieldtype": "Button",
+   "label": "Get from Purchase Receipt"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2023-11-17 10:00:46.563022",
+ "modified": "2023-11-18 08:05:22.647686",
  "modified_by": "Administrator",
  "module": "Aabha Homes",
  "name": "Material Consumption Entry",

@@ -8,11 +8,11 @@
  "field_order": [
   "workers_name",
   "total_wages_amount",
-  "total_overtime_hours",
+  "total_overtime_amount",
   "previous_balance",
   "net_pay",
-  "total_overtime_amount",
   "balance",
+  "total_overtime_hours",
   "from_date",
   "to_date"
  ],
@@ -38,6 +38,7 @@
    "columns": 2,
    "fieldname": "total_overtime_amount",
    "fieldtype": "Currency",
+   "in_list_view": 1,
    "label": "Total Overtime Amount",
    "options": "Currency"
   },
@@ -45,7 +46,6 @@
    "columns": 2,
    "fieldname": "total_overtime_hours",
    "fieldtype": "Float",
-   "in_list_view": 1,
    "label": "Total Overtime Hours "
   },
   {
@@ -88,7 +88,7 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2023-11-17 09:30:52.516140",
+ "modified": "2023-11-18 07:55:37.632784",
  "modified_by": "Administrator",
  "module": "Aabha Homes",
  "name": "Site Wages Details",
