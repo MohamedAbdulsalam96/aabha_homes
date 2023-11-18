@@ -11,6 +11,7 @@
   "company",
   "supervisor_name",
   "cost_center",
+  "project_warehouse",
   "get_from_purchase_receipt",
   "column_break_izvw",
   "naming_series",
@@ -96,12 +97,19 @@
    "fieldname": "get_from_purchase_receipt",
    "fieldtype": "Button",
    "label": "Get from Purchase Receipt"
+  },
+  {
+   "fieldname": "project_warehouse",
+   "fieldtype": "Link",
+   "label": "Project Warehouse",
+   "options": "Warehouse",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2023-11-18 08:05:22.647686",
+ "modified": "2023-11-18 08:34:27.102158",
  "modified_by": "Administrator",
  "module": "Aabha Homes",
  "name": "Material Consumption Entry",
