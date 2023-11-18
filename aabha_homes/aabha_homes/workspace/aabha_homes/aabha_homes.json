@@ -1,6 +1,6 @@
 {
  "charts": [],
- "content": "[{\"id\":\"HUYP7mKthH\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Aabha Homes</span>\",\"col\":12}},{\"id\":\"ebdJ6Eta7C\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Site Worker Assignment\",\"col\":3}},{\"id\":\"yV5o4c1Pjt\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Site Entry\",\"col\":3}},{\"id\":\"OgEE10M6NA\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Subcontracting Entry\",\"col\":3}},{\"id\":\"kzy0DWZMrW\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Site Wages\",\"col\":3}},{\"id\":\"LpJajwJcvx\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Workers Wages Balance\",\"col\":3}},{\"id\":\"3nZLh4g0V6\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Material Consumption Entry\",\"col\":3}},{\"id\":\"X8AKVMwat_\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Material Request\",\"col\":3}},{\"id\":\"TOPEptmaP1\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Purchase Receipt\",\"col\":3}},{\"id\":\"htxTb6Wz4g\",\"type\":\"card\",\"data\":{\"card_name\":\"Purchase\",\"col\":4}},{\"id\":\"xux7k-cFmy\",\"type\":\"card\",\"data\":{\"card_name\":\"Sales\",\"col\":4}},{\"id\":\"rCs39QUo2c\",\"type\":\"card\",\"data\":{\"card_name\":\"Settings\",\"col\":4}},{\"id\":\"HYmCAalkx0\",\"type\":\"card\",\"data\":{\"card_name\":\"Payroll\",\"col\":4}}]",
+ "content": "[{\"id\":\"HUYP7mKthH\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Aabha Homes</span>\",\"col\":12}},{\"id\":\"ebdJ6Eta7C\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Site Worker Assignment\",\"col\":3}},{\"id\":\"yV5o4c1Pjt\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Site Entry\",\"col\":3}},{\"id\":\"OgEE10M6NA\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Subcontracting Entry\",\"col\":3}},{\"id\":\"kzy0DWZMrW\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Site Wages\",\"col\":3}},{\"id\":\"LpJajwJcvx\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Workers Wages Balance\",\"col\":3}},{\"id\":\"3nZLh4g0V6\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Material Consumption Entry\",\"col\":3}},{\"id\":\"X8AKVMwat_\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Material Request\",\"col\":3}},{\"id\":\"TOPEptmaP1\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Purchase Receipt\",\"col\":3}},{\"id\":\"htxTb6Wz4g\",\"type\":\"card\",\"data\":{\"card_name\":\"Purchase\",\"col\":4}},{\"id\":\"xux7k-cFmy\",\"type\":\"card\",\"data\":{\"card_name\":\"Sales\",\"col\":4}},{\"id\":\"rCs39QUo2c\",\"type\":\"card\",\"data\":{\"card_name\":\"Settings\",\"col\":4}},{\"id\":\"HYmCAalkx0\",\"type\":\"card\",\"data\":{\"card_name\":\"Payroll\",\"col\":4}},{\"id\":\"d2bn6neHyZ\",\"type\":\"card\",\"data\":{\"card_name\":\"Masters\",\"col\":4}}]",
  "creation": "2023-11-15 22:39:41.841020",
  "custom_blocks": [],
  "docstatus": 0,
@@ -13,24 +13,6 @@
  "is_hidden": 0,
  "label": "Aabha Homes",
  "links": [
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Settings",
-   "link_count": 1,
-   "onboard": 0,
-   "type": "Card Break"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Aabha Homes Settings",
-   "link_count": 0,
-   "link_to": "Aabha Homes Settings",
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Link"
-  },
   {
    "hidden": 0,
    "is_query_report": 0,
@@ -274,9 +256,155 @@
    "link_type": "Report",
    "onboard": 0,
    "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Masters",
+   "link_count": 5,
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Employee",
+   "link_count": 0,
+   "link_to": "Employee",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Item",
+   "link_count": 0,
+   "link_to": "Item",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Customer",
+   "link_count": 0,
+   "link_to": "Customer",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Supplier",
+   "link_count": 0,
+   "link_to": "Supplier",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Chart of Accounts",
+   "link_count": 0,
+   "link_to": "Account",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Settings",
+   "link_count": 8,
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Aabha Homes Settings",
+   "link_count": 0,
+   "link_to": "Aabha Homes Settings",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Selling Settings",
+   "link_count": 0,
+   "link_to": "Selling Settings",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Buying Settings",
+   "link_count": 0,
+   "link_to": "Buying Settings",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Accounts Settings",
+   "link_count": 0,
+   "link_to": "Accounts Settings",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "HR Settings",
+   "link_count": 0,
+   "link_to": "HR Settings",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Payroll Settings",
+   "link_count": 0,
+   "link_to": "Payroll Settings",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "System Settings",
+   "link_count": 0,
+   "link_to": "System Settings",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Global Defaults",
+   "link_count": 0,
+   "link_to": "Global Defaults",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
   }
  ],
- "modified": "2023-11-18 08:11:17.796494",
+ "modified": "2023-11-18 08:18:50.226326",
  "modified_by": "Administrator",
  "module": "Aabha Homes",
  "name": "Aabha Homes",
