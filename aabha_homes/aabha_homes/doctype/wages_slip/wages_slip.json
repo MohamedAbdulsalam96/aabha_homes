@@ -1,0 +1,149 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2023-11-22 17:59:09.568174",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "company",
+  "cost_center",
+  "supervisor_name",
+  "column_break_oblj",
+  "status",
+  "naming_series",
+  "posting_date",
+  "workers_name",
+  "section_break_uhzo",
+  "wages_slip_details",
+  "section_break_ijou",
+  "grand_total",
+  "column_break_dimp",
+  "total_overtime",
+  "column_break_eyzl",
+  "total_overtime_amount",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company"
+  },
+  {
+   "fieldname": "column_break_oblj",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "posting_date",
+   "fieldtype": "Date",
+   "label": "Posting Date"
+  },
+  {
+   "fieldname": "cost_center",
+   "fieldtype": "Link",
+   "label": "Cost Center ( Project )",
+   "options": "Cost Center"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "options": "WS.YY.MM.####"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Open\nCompleted"
+  },
+  {
+   "fieldname": "supervisor_name",
+   "fieldtype": "Link",
+   "label": "Supervisor Name",
+   "options": "Employee"
+  },
+  {
+   "fieldname": "workers_name",
+   "fieldtype": "Link",
+   "label": "Workers Name",
+   "options": "Employee"
+  },
+  {
+   "fieldname": "section_break_uhzo",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "wages_slip_details",
+   "fieldtype": "Table",
+   "label": "Wages Slip Details",
+   "options": "Wages Slip Details"
+  },
+  {
+   "fieldname": "grand_total",
+   "fieldtype": "Currency",
+   "label": "Grand Total ( Hrs)",
+   "options": "Currency"
+  },
+  {
+   "fieldname": "section_break_ijou",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_dimp",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "total_overtime",
+   "fieldtype": "Float",
+   "label": "Total Overtime "
+  },
+  {
+   "fieldname": "column_break_eyzl",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "total_overtime_amount",
+   "fieldtype": "Currency",
+   "label": "Total Overtime Amount",
+   "options": "Currency"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Wages Slip",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2023-11-22 18:21:07.956851",
+ "modified_by": "Administrator",
+ "module": "Aabha Homes",
+ "name": "Wages Slip",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

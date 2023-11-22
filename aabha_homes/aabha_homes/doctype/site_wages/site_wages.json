@@ -17,11 +17,12 @@
   "get_site_entry",
   "column_break_rvwr",
   "posting_date",
-  "amended_from",
+  "supervisor_name",
   "section_break_zqsp",
   "site_wages_details",
   "section_break_eavn",
-  "site_wages_project_wise_total"
+  "site_wages_project_wise_total",
+  "amended_from"
  ],
  "fields": [
   {
@@ -70,15 +71,6 @@
    "fieldtype": "Section Break"
   },
   {
-   "fieldname": "amended_from",
-   "fieldtype": "Link",
-   "label": "Amended From",
-   "no_copy": 1,
-   "options": "Site Wages",
-   "print_hide": 1,
-   "read_only": 1
-  },
-  {
    "fieldname": "get_site_entry",
    "fieldtype": "Button",
    "label": "Get Site Entry"
@@ -102,12 +94,28 @@
    "fieldtype": "Table",
    "label": "Site Wages Project Wise Total",
    "options": "Site Wages Project Wise Total"
+  },
+  {
+   "fieldname": "supervisor_name",
+   "fieldtype": "Link",
+   "label": "Supervisor Name",
+   "options": "Employee"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Site Wages",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2023-11-17 09:12:20.234884",
+ "modified": "2023-11-22 18:06:36.748651",
  "modified_by": "Administrator",
  "module": "Aabha Homes",
  "name": "Site Wages",
