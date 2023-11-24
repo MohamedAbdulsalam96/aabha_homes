@@ -1,0 +1,58 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:particulars_of_work",
+ "creation": "2023-11-24 18:12:45.859378",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "particulars_of_work_column",
+  "particulars_of_work",
+  "column_break_jufd"
+ ],
+ "fields": [
+  {
+   "fieldname": "particulars_of_work",
+   "fieldtype": "Data",
+   "label": "Particulars of work",
+   "no_copy": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "particulars_of_work_column",
+   "fieldtype": "Column Break",
+   "label": "Particulars of work"
+  },
+  {
+   "fieldname": "column_break_jufd",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2023-11-24 18:15:12.594506",
+ "modified_by": "Administrator",
+ "module": "Aabha Homes",
+ "name": "Particulars of work",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "track_seen": 1
+}
