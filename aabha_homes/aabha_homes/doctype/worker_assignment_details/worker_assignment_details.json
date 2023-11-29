@@ -19,17 +19,19 @@
    "reqd": 1
   },
   {
+   "fetch_from": "workers.custom_employee_state",
    "fieldname": "state",
    "fieldtype": "Link",
    "in_list_view": 1,
    "label": "State",
-   "options": "Worker State"
+   "options": "Worker State",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2023-11-18 08:20:20.019423",
+ "modified": "2023-11-26 22:00:27.642847",
  "modified_by": "Administrator",
  "module": "Aabha Homes",
  "name": "Worker Assignment Details",
