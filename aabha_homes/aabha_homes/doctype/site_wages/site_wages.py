@@ -9,10 +9,13 @@ from datetime import date
 class SiteWages(Document):
 	def before_submit(self):
 		self.create_je()
+		self.set_pending()
 	def create_je(self):
 		je_doc = frappe.new_doc("Journal Entry")
 		je_doc.company = frappe.defaults.get_defaults().company
 		je_doc.posting_date = date.today()
+		je_doc.cheque_no = self.name
+		je_doc.cheque_date = self.posting_date
 		emp_list = frappe.db.get_all("Site Wages Details", {"parent": self.name},
 		["workers_name as party", "net_pay as credit_in_account_currency"])
 		credit_acc = frappe.db.get_single_value("Aabha Homes Settings", "wages_payable_account")
@@ -29,4 +32,16 @@ class SiteWages(Document):
 			je_doc.append("accounts", 
 			{"account": debit_acc, "debit_in_account_currency": debit_amount})
 		je_doc.save(ignore_permissions=True)
+		je_doc.submit()
+
+	def set_pending(self):
+		for row in self.site_wages_details:
+			if row.balance:
+				wwb_doc = frappe.new_doc("Workers Wages Balance")
+				wwb.date = date.today()
+				wwb.cost_center = self.cost_center
+				wwb.worker_name = row.workers_name
+				wwb.balace_amount = row.balance
+
+
 

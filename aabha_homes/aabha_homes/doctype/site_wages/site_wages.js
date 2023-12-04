@@ -51,5 +51,17 @@ frappe.ui.form.on("Site Wages Details", {
         let row = locals[cdt][cdn]
         row.balance = row.original_net_pay - row.net_pay
         frm.refresh_field("site_wages_details")
+    },
+    before_site_wages_details_remove(frm, cdt, cdn){
+        let row = locals[cdt][cdn]
+        console.log(row.workers_name)
+        let splitup = frm.doc.site_wages_project_wise_total
+        frm.doc.site_wages_project_wise_total.forEach((data, i)=>{
+            if(data.workers_name === row.workers_name){
+                frm.doc.site_wages_project_wise_total.splice(i, 1)
+            }
+            console.log(i)
+        })
+        frm.refresh_field("site_wages_project_wise_total")
     }
 })

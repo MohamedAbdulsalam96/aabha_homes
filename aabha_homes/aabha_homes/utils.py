@@ -23,9 +23,12 @@ def site_entry_emp(costCenter):
 			
 @frappe.whitelist()
 def get_total_emp_wages(costCenter):
-	if not frappe.db.exists("Site Entry", {"cost_center": costCenter}):
+	if not frappe.db.exists("Site Entry", {"cost_center": costCenter, "docstatus":1}):
 		frappe.throw("No 'Site Entry' found")
 	query = make_se_query(costCenter) or ""
+	if not query:
+		frappe.msgprint("No unpaid worker found from {0}".format(costCenter))
+		return
 	data = frappe.db.sql("""
 		SELECT 
 			SUM(basic_amount) as total_wages_amount,
@@ -60,28 +63,40 @@ def get_total_emp_wages(costCenter):
 	return {"data": data, "data_split": data_split}
 
 def make_se_query(costCenter):
+	paid_wd = []
+	unpaid_wd = []
+	query = ""
 	sw_list = frappe.db.get_list("Site Wages", {"cost_center": costCenter, "docstatus":1},
 	pluck="name", ignore_permissions=True)
-	if not sw_list:
-		return
-	paid_wd = frappe.db.get_list("Site Wages Project Wise Total",
-	{"docstatus":1, "parent": ["in", sw_list]}, ["workers_details_doc"], pluck="workers_details_doc",
-	ignore_permissions=True)
-	unpaid_wd = None
-	query = ""
+	if sw_list:
+		paid_wd = frappe.db.get_list("Site Wages Project Wise Total",
+		{"docstatus":1, "parent": ["in", sw_list]}, ["workers_details_doc"], pluck="workers_details_doc",
+		ignore_permissions=True)
+	print("paid_wd-----------------------------------------------")
+	print(paid_wd)
 	if paid_wd:
 		se_list = frappe.db.get_list("Site Entry", {"cost_center": costCenter, "docstatus":1},
 		pluck="name", ignore_permissions=True)
+		print("se_list-----------------------------------")
+		print(se_list)
 		unpaid_wd = frappe.db.get_list("Workers Details", 
 		{"docstatus":1, "parent": ["in", se_list], "name": ["not in", paid_wd]},
 		pluck="name", ignore_permissions=True)
+	else:
+		se_list = frappe.db.get_list("Site Entry", {"cost_center": costCenter, "docstatus":1},
+		pluck="name", ignore_permissions=True)
+		unpaid_wd = frappe.db.get_list("Workers Details", 
+		{"docstatus":1, "parent": ["in", se_list]},
+		pluck="name", ignore_permissions=True)
+	print("unpaid-------------------------------------")
+	print(unpaid_wd)
 	if unpaid_wd:
 		if len(unpaid_wd) == 1:
 			query = """
-				WHERE WD.name IN ('{site_entry}')
-			""".format(site_entry=se_list[0])
+				WHERE WD.name IN ('{unpaid_wd}')
+			""".format(unpaid_wd=unpaid_wd[0])
 		if len(unpaid_wd) > 1:
 			query = """
-				WHERE  WD.name IN {site_entry}
-			""".format(site_entry=tuple(se_list))
+				WHERE  WD.name IN {unpaid_wd}
+			""".format(unpaid_wd=tuple(unpaid_wd))
 	return query
