@@ -219,3 +219,19 @@ app_license = "mit"
 # auth_hooks = [
 #	"aabha_homes.auth.validate"
 # ]
+fixtures = [
+    {
+        "doctype": "Custom Field",
+        "filters": [
+            [
+                "name",
+                "in",
+                [
+                    "Employee-custom_is_supervisor",
+                    "Employee-custom_is_worker",
+                    "Employee-custom_employee_state"
+                ]
+            ]
+        ]
+    }
+]
