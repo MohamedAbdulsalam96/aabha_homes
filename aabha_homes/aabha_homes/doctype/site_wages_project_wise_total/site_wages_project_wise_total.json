@@ -12,7 +12,8 @@
   "basic_amount",
   "overtime_amount",
   "net_pay",
-  "overtime"
+  "overtime",
+  "workers_details_doc"
  ],
  "fields": [
   {
@@ -67,12 +68,18 @@
    "in_list_view": 1,
    "label": "Overtime Amount",
    "options": "Currency"
+  },
+  {
+   "fieldname": "workers_details_doc",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Workers Details Doc"
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2023-11-22 18:15:23.129362",
+ "modified": "2023-11-30 01:30:38.561338",
  "modified_by": "Administrator",
  "module": "Aabha Homes",
  "name": "Site Wages Project Wise Total",

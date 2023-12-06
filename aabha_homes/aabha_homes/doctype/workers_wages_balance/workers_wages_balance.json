@@ -19,10 +19,7 @@
   "section_break_ovhf",
   "balance_amount",
   "column_break_joec",
-  "paid_amount",
-  "section_break_iifl",
-  "pending_balance",
-  "column_break_kixg"
+  "amended_from"
  ],
  "fields": [
   {
@@ -66,41 +63,36 @@
    "fieldtype": "Section Break"
   },
   {
+   "allow_on_submit": 1,
    "fieldname": "balance_amount",
    "fieldtype": "Currency",
-   "label": "Balance Amount"
+   "label": "Balance Amount",
+   "read_only": 1
   },
   {
    "fieldname": "column_break_joec",
    "fieldtype": "Column Break"
   },
   {
-   "fieldname": "paid_amount",
-   "fieldtype": "Currency",
-   "label": "Paid Amount"
-  },
-  {
-   "fieldname": "section_break_iifl",
-   "fieldtype": "Section Break"
-  },
-  {
-   "fieldname": "pending_balance",
-   "fieldtype": "Currency",
-   "label": "Pending Balance"
-  },
-  {
-   "fieldname": "column_break_kixg",
-   "fieldtype": "Column Break"
-  },
-  {
    "fieldname": "date",
    "fieldtype": "Date",
    "label": "Date"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Workers Wages Balance",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
   }
  ],
  "index_web_pages_for_search": 1,
+ "is_submittable": 1,
  "links": [],
- "modified": "2023-11-17 09:51:03.589532",
+ "modified": "2023-12-06 15:59:43.282378",
  "modified_by": "Administrator",
  "module": "Aabha Homes",
  "name": "Workers Wages Balance",
