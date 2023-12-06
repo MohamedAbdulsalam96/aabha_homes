@@ -93,7 +93,8 @@
    "fieldname": "site_wages_project_wise_total",
    "fieldtype": "Table",
    "label": "Site Wages Project Wise Total",
-   "options": "Site Wages Project Wise Total"
+   "options": "Site Wages Project Wise Total",
+   "read_only": 1
   },
   {
    "fieldname": "supervisor_name",
@@ -115,7 +116,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2023-11-22 18:06:36.748651",
+ "modified": "2023-12-06 13:37:39.197858",
  "modified_by": "Administrator",
  "module": "Aabha Homes",
  "name": "Site Wages",

@@ -10,7 +10,9 @@
   "basic_amount",
   "overtime",
   "overtime_amount",
-  "net_pay"
+  "net_pay",
+  "normal_working_hours",
+  "overtime_factor"
  ],
  "fields": [
   {
@@ -47,12 +49,24 @@
    "in_list_view": 1,
    "label": "Basic Amount",
    "options": "Currency"
+  },
+  {
+   "fieldname": "normal_working_hours",
+   "fieldtype": "Float",
+   "hidden": 1,
+   "label": "Normal Working Hours"
+  },
+  {
+   "fieldname": "overtime_factor",
+   "fieldtype": "Float",
+   "hidden": 1,
+   "label": "Overtime Factor"
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2023-11-15 22:36:24.254795",
+ "modified": "2023-12-06 12:41:54.192980",
  "modified_by": "Administrator",
  "module": "Aabha Homes",
  "name": "Workers Details",

@@ -54,14 +54,14 @@ frappe.ui.form.on("Site Wages Details", {
     },
     before_site_wages_details_remove(frm, cdt, cdn){
         let row = locals[cdt][cdn]
-        console.log(row.workers_name)
-        let splitup = frm.doc.site_wages_project_wise_total
-        frm.doc.site_wages_project_wise_total.forEach((data, i)=>{
-            if(data.workers_name === row.workers_name){
-                frm.doc.site_wages_project_wise_total.splice(i, 1)
+        const splitup = frm.doc.site_wages_project_wise_total.slice()
+        let newData = []
+        for(let i=0; i<splitup.length; i++){
+            if(splitup[i].workers_name != row.workers_name){
+                newData.push(splitup[i])
             }
-            console.log(i)
-        })
+        }
+        frm.doc.site_wages_project_wise_total = newData
         frm.refresh_field("site_wages_project_wise_total")
     }
 })
