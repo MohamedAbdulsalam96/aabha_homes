@@ -1,4 +1,5 @@
 import frappe
+import json
 from datetime import date
 from frappe.model.mapper import get_mapped_doc
 
@@ -7,10 +8,26 @@ def site_entry_emp(costCenter, postingDate):
 	"""
 	swa = site worker entry
 	"""
-	if not frappe.db.exists("Site Worker Assignment", {"status":"Active", "cost_center":costCenter, "docstatus": 1}):
-		frappe.throw("Couldn't find Site Worker Assignment")
-	swa = frappe.get_last_doc("Site Worker Assignment", 
-	{"status":"Active", "cost_center":costCenter, "docstatus": 1})
+	# if not frappe.db.exists("Site Worker Assignment", {"status":"Active", "cost_center":costCenter, "docstatus": 1}):
+	# 	frappe.throw("Couldn't find Site Worker Assignment")
+	# swa = frappe.get_last_doc("Site Worker Assignment", 
+	# {"status":"Active", "cost_center":costCenter, "docstatus": 1})
+	swa = frappe.db.sql("""
+		SELECT *
+		FROM `tabSite Worker Assignment` SWA
+		WHERE 
+			docstatus = 1 and
+			status = "Active" and
+			cost_center = '{0}' and
+			valid_from <= '{1}'
+		ORDER BY
+			valid_from DESC
+		LIMIT 1
+	""".format(costCenter, postingDate),
+	as_dict=True)
+	if not swa:
+		frappe.throw("No Site worker asssignment found")
+	swa = swa[0]
 	swa_emp = frappe.db.get_list("Worker Assignment Details", {"parent": swa.name},
 	["workers"], pluck="workers", ignore_permissions=True)
 	if not swa_emp:
@@ -40,7 +57,7 @@ def site_entry_emp(costCenter, postingDate):
 			wage_data.append(ws_doc[0])
 		else:
 			frappe.throw("Couldn't find Wage structure for {0}".format(emp))
-	return wage_data
+	return {"wage_data": wage_data, "supervisor": swa.supervisor_name, "swa":swa.name}
 			
 @frappe.whitelist()
 def get_total_emp_wages(costCenter):
@@ -51,7 +68,7 @@ def get_total_emp_wages(costCenter):
 		frappe.msgprint("No unpaid worker found from {0}".format(costCenter))
 		return
 	data = frappe.db.sql("""
-		SELECT 
+		SELECT
 			SUM(basic_amount) as total_wages_amount,
 			SUM(overtime_amount) as total_overtime_amount,
 			sum(net_pay) as net_pay,
@@ -87,7 +104,7 @@ def get_total_emp_wages(costCenter):
 		{query}
 		ORDER BY WD.worker_name
 	""".format(query=query), as_dict=True)
-	return {"data": data, "data_split": data_split}
+	return {"data": data, "data_split": data_split, "supervisor_name":frappe.db.get_value("Site Entry", {"cost_center": costCenter}, ["supervisor_name"])}
 
 def make_se_query(costCenter):
 	paid_wd = []
@@ -167,10 +184,35 @@ def make_material_consumption(source_name, target_doc=None):
 			"Purchase Receipt": {"doctype": "Stock Entry", "validation": {"docstatus": ["=", 1]}},
 			"Purchase Receipt Item": {
 				"doctype": "Material Consumption Details",
-				"field_map": {"qty": "qty","uom":"uom"},
+				"field_map": {
+					"item_name": "item_code",
+					"uom":"uom"
+				},
 			},
 		},
 		target_doc,
 	)
+	return doc
 
+@frappe.whitelist()
+def get_bin_stock(item_code, warehouse):
+	data = {}
+	if frappe.db.exists("Bin", {"item_code": item_code, "warehouse": warehouse}):
+		bin_doc = frappe.get_last_doc("Bin", {"item_code": item_code, "warehouse": warehouse})
+		data["available_qty"] = bin_doc.actual_qty
+	data["uom"] = frappe.db.get_value("Item", item_code, ["stock_uom"])
+	return data
+
+@frappe.whitelist()
+def get_bin_stock_list(doc, warehouse):
+	if doc:
+		doc = json.loads(doc)
+	for item in doc:
+		if frappe.db.exists("Bin", {"item_code": item.get("item_name"), "warehouse": warehouse}):
+			bin_doc = frappe.get_last_doc("Bin",
+			{"item_code": item.get("item_name"), "warehouse": warehouse})
+			print(bin_doc.actual_qty)
+			item["available_qty"] = bin_doc.actual_qty
+		else:
+			item["available_qty"] = 0
 	return doc

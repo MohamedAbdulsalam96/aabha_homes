@@ -6,9 +6,8 @@ from frappe.model.document import Document
 
 
 class SiteWorkerAssignment(Document):
-	def on_submit(self):
-		prev_doc = frappe.db.exists("Site Worker Assignment",
-		{"cost_center": self.cost_center, "status": "Active", "name": ["!=", self.name]})
-		print(prev_doc)
-		if prev_doc:
-			frappe.db.set_value("Site Worker Assignment", prev_doc, "status", "Inactive")
+	def on_cancel(self):
+		se = frappe.db.exists("Site Entry",
+		{"site_worker_assignment": self.name, "docstatus": ["!=" "2"]})
+		if se:
+			frappe.throw("{0} is linked with {1}".format(self.name, se))
