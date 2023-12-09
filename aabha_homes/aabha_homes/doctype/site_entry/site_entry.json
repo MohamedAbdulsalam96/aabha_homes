@@ -12,6 +12,7 @@
   "column_break_tiax",
   "company",
   "supervisor_name",
+  "site_worker_assignment",
   "column_break_zauy",
   "status",
   "naming_series",
@@ -114,6 +115,7 @@
    "in_list_view": 1,
    "label": "Supervisor Name",
    "options": "Employee",
+   "read_only": 1,
    "reqd": 1
   },
   {
@@ -142,18 +144,25 @@
    "reqd": 1
   },
   {
-   "allow_on_submit": 1,
    "fieldname": "status",
    "fieldtype": "Select",
    "label": "Status",
    "options": "Open\nCompleted",
    "reqd": 1
+  },
+  {
+   "fieldname": "site_worker_assignment",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Site Worker Assignment",
+   "options": "Site Worker Assignment",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2023-12-06 12:42:23.729592",
+ "modified": "2023-12-09 18:01:37.944106",
  "modified_by": "Administrator",
  "module": "Aabha Homes",
  "name": "Site Entry",

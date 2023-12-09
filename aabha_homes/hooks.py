@@ -123,6 +123,9 @@ app_license = "mit"
 # Hook on document methods and events
 
 # doc_events = {
+#     "Purchase Receipt": {
+#         "before_save": "aabha_homes.aabha_homes.utils.get_bin_stock_list"
+#     }
 #	"*": {
 #		"on_update": "method",
 #		"on_cancel": "method",
@@ -229,7 +232,8 @@ fixtures = [
                 [
                     "Employee-custom_is_supervisor",
                     "Employee-custom_is_worker",
-                    "Employee-custom_employee_state"
+                    "Employee-custom_employee_state",
+                    "Stock Entry-custom_material_consumption_entry"
                 ]
             ]
         ]

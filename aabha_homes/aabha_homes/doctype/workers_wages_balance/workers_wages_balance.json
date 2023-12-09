@@ -46,7 +46,8 @@
    "fieldname": "cost_center",
    "fieldtype": "Link",
    "label": "Cost Center ( Project )",
-   "options": "Cost Center"
+   "options": "Cost Center",
+   "read_only": 1
   },
   {
    "fieldname": "column_break_zuln",
@@ -56,7 +57,8 @@
    "fieldname": "worker_name",
    "fieldtype": "Link",
    "label": "Worker Name",
-   "options": "Employee"
+   "options": "Employee",
+   "read_only": 1
   },
   {
    "fieldname": "section_break_ovhf",
@@ -74,9 +76,11 @@
    "fieldtype": "Column Break"
   },
   {
+   "allow_on_submit": 1,
    "fieldname": "date",
    "fieldtype": "Date",
-   "label": "Date"
+   "label": "Date",
+   "read_only": 1
   },
   {
    "fieldname": "amended_from",
@@ -92,7 +96,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2023-12-06 15:59:43.282378",
+ "modified": "2023-12-07 22:49:30.293193",
  "modified_by": "Administrator",
  "module": "Aabha Homes",
  "name": "Workers Wages Balance",

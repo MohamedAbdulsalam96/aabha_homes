@@ -9,6 +9,7 @@
   "company",
   "cost_center",
   "supervisor_name",
+  "site_wages",
   "column_break_oblj",
   "status",
   "naming_series",
@@ -18,10 +19,13 @@
   "wages_slip_details",
   "section_break_ijou",
   "grand_total",
+  "total_paid",
   "column_break_dimp",
   "total_overtime",
+  "previous_balance",
   "column_break_eyzl",
   "total_overtime_amount",
+  "balance",
   "amended_from"
  ],
  "fields": [
@@ -118,12 +122,34 @@
    "print_hide": 1,
    "read_only": 1,
    "search_index": 1
+  },
+  {
+   "fieldname": "total_paid",
+   "fieldtype": "Currency",
+   "label": "Total Paid"
+  },
+  {
+   "fieldname": "balance",
+   "fieldtype": "Currency",
+   "label": "Balance"
+  },
+  {
+   "fieldname": "previous_balance",
+   "fieldtype": "Currency",
+   "label": "Previous Balance"
+  },
+  {
+   "fieldname": "site_wages",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Site Wages",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2023-11-22 18:21:07.956851",
+ "modified": "2023-12-09 12:53:49.095522",
  "modified_by": "Administrator",
  "module": "Aabha Homes",
  "name": "Wages Slip",

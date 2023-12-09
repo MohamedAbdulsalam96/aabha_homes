@@ -17,18 +17,14 @@ frappe.ui.form.on("Site Entry", {
                 }
             }
         })
+        frm.fields_dict['workers_details'].grid.get_field('worker_name').get_query = function(frm, cdt, cdn){
+            return {
+                filters:{
+                    custom_is_worker:1
+                }
+            }
+        }
 	},
-    // supervisor_name(frm){
-    //     frm.set_query('cost_center', function(frm){
-    //         return{
-    //             query: "aabha_homes.aabha_homes.query.get_se_cc",
-    //             filters:{
-    //                 supervisor_name:frm.supervisor_name,
-    //                 posting_date: frm.posting_date
-    //             }
-    //         }
-    //     })
-    // },
     cost_center(frm){
         frm.set_value("workers_details", "")
         if(frm.doc.cost_center){
@@ -38,9 +34,11 @@ frappe.ui.form.on("Site Entry", {
             }).then(data=>{
                 frm.set_value("workers_details", "")
                 if(data){
-                    data.forEach(d=>{
+                    data.wage_data.forEach(d=>{
                         frm.add_child("workers_details", d)
                     })
+                    frm.set_value("supervisor_name", data.supervisor)
+                    frm.set_value("site_worker_assignment", data.swa)
                 }
                 frm.refresh_field("workers_details")
             })

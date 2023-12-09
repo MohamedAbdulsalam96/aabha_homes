@@ -18,6 +18,13 @@ frappe.ui.form.on("Site Wages", {
                 }
             }
         })
+        frm.fields_dict['site_wages_details'].grid.get_field('workers_name').get_query = function(frm, cdt, cdn){
+            return {
+                filters:{
+                    custom_is_worker:1
+                }
+            }
+        }
 	},
     get_site_entry(frm){
         if(!frm.doc.cost_center){
@@ -36,6 +43,7 @@ frappe.ui.form.on("Site Wages", {
                 frm.add_child("site_wages_project_wise_total", el)
             })
             frm.refresh_field("site_wages_project_wise_total")
+            frm.set_value("supervisor_name", msg.supervisor_name)
         })
     },
     create_je(frm){

@@ -11,6 +11,28 @@ class SiteWages(Document):
 		self.create_je()
 		self.set_pending()
 		self.create_wage_slip()
+
+	def on_cancel(self):
+		ws = frappe.db.exists("Wages Slip",
+		{"site_wages":self.name, "docstatus": ["=", "1"]})
+		if ws:
+			ws_doc = frappe.get_doc("Wages Slip", ws)
+			ws_doc.cancel()
+
+		je = frappe.db.exists("Journal Entry",
+		{"cheque_no":self.name, "docstatus": ["=", "1"]})
+		if je:
+			je_doc = frappe.get_doc("Journal Entry", je)
+			je_doc.cancel()
+
+		for row in self.site_wages_details:
+			wwb = frappe.db.exists("Workers Wages Balance",
+			{"cost_center": self.cost_center, "worker_name": row.workers_name, "docstatus": ["!=", "2"]})
+			if wwb and row.previous_balance:
+				wwb_doc = frappe.get_doc("Workers Wages Balance", wwb)
+				wwb_doc.balance_amount = row.previous_balance
+				wwb_doc.save(ignore_permissions=True)
+				
 	def create_je(self):
 		je_doc = frappe.new_doc("Journal Entry")
 		je_doc.company = frappe.defaults.get_defaults().company
@@ -43,7 +65,7 @@ class SiteWages(Document):
 		for row in self.site_wages_details:
 			wwb_doc = None
 			if frappe.db.exists("Workers Wages Balance",
-			{"cost_center": self.cost_center, "worker_name": row.workers_name}):
+			{"cost_center": self.cost_center, "worker_name": row.workers_name, "docstatus": ["!=", "2"]}):
 				wwb_doc = frappe.get_last_doc("Workers Wages Balance",
 				{"cost_center": self.cost_center, "worker_name": row.workers_name})
 			else:
@@ -66,13 +88,19 @@ class SiteWages(Document):
 			split_details = frappe.db.get_all("Site Wages Project Wise Total",
 			{"parent": self.name, "workers_name": row.workers_name},
 			["site_entry_reference as ref", "net_pay", "overtime_amount", "overtime", "basic_amount", "site_entry_date as ref_date"])
-			print(split_details)
 			for detail in split_details:
 				slip_doc.append("wages_slip_details", detail)
 			bt = frappe.db.get_value("Site Wages Project Wise Total",
 			{"parent": self.name, "workers_name": row.workers_name},
 			["SUM(basic_amount)", "SUM(overtime_amount)", "SUM(overtime)"])
-			slip_doc.grand_total = bt[0] + bt[1]
+			swd = frappe.db.get_value("Site Wages Details",
+			{"parent": self.name, "workers_name": row.workers_name},
+			["previous_balance", "net_pay", "balance"])
+			slip_doc.previous_balance = swd[0]
+			slip_doc.site_wages = self.name
+			slip_doc.balance = swd[2]
+			slip_doc.total_paid = swd[1]
+			slip_doc.grand_total = bt[0] + bt[1] + swd[0]
 			slip_doc.total_overtime_amount = bt[1]
 			slip_doc.total_overtime = bt[2]
 			slip_doc.save(ignore_permissions=True)
