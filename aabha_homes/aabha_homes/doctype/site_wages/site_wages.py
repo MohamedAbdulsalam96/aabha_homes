@@ -13,11 +13,13 @@ class SiteWages(Document):
 		self.create_wage_slip()
 
 	def on_cancel(self):
-		ws = frappe.db.exists("Wages Slip",
-		{"site_wages":self.name, "docstatus": ["=", "1"]})
-		if ws:
-			ws_doc = frappe.get_doc("Wages Slip", ws)
-			ws_doc.cancel()
+		if frappe.db.exists("Wages Slip",
+		{"site_wages":self.name, "docstatus": ["=", "1"]}):
+			ws_list = frappe.db.get_list("Wages Slip",
+			{"site_wages":self.name, "docstatus": ["=", "1"]}, pluck="name")
+			for ws in ws_list:
+				ws_doc = frappe.get_doc("Wages Slip", ws)
+				ws_doc.cancel()
 
 		je = frappe.db.exists("Journal Entry",
 		{"cheque_no":self.name, "docstatus": ["=", "1"]})

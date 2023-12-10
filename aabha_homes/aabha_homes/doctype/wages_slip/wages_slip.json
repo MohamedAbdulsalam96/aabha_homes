@@ -47,6 +47,7 @@
   {
    "fieldname": "cost_center",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Cost Center ( Project )",
    "options": "Cost Center"
   },
@@ -65,12 +66,14 @@
   {
    "fieldname": "supervisor_name",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Supervisor Name",
    "options": "Employee"
   },
   {
    "fieldname": "workers_name",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Workers Name",
    "options": "Employee"
   },
@@ -87,6 +90,7 @@
   {
    "fieldname": "grand_total",
    "fieldtype": "Currency",
+   "in_list_view": 1,
    "label": "Grand Total ( Hrs)",
    "options": "Currency"
   },
@@ -149,7 +153,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2023-12-09 12:53:49.095522",
+ "modified": "2023-12-10 18:39:41.684944",
  "modified_by": "Administrator",
  "module": "Aabha Homes",
  "name": "Wages Slip",
