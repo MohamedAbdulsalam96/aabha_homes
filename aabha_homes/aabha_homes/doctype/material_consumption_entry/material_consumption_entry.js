@@ -51,7 +51,19 @@ frappe.ui.form.on("Material Consumption Entry", {
                 docstatus: 1
             }
         })
-	}
+	},
+    cost_center(frm){
+        if(frm.doc.cost_center){
+            frappe.xcall("aabha_homes.aabha_homes.utils.site_entry_emp", {
+                costCenter:frm.doc.cost_center,
+                postingDate: frm.doc.posting_date
+            }).then(data=>{
+                if(data){
+                    frm.set_value("supervisor_name", data.supervisor)
+                }
+            })
+        }
+    }
 });
 
 frappe.ui.form.on("Material Consumption Details", {

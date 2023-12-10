@@ -45,7 +45,8 @@
    "fieldname": "supervisor_name",
    "fieldtype": "Link",
    "label": "Supervisor Name",
-   "options": "Employee"
+   "options": "Employee",
+   "read_only": 1
   },
   {
    "default": "Today",
@@ -109,7 +110,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2023-11-18 08:34:27.102158",
+ "modified": "2023-12-10 18:52:06.472012",
  "modified_by": "Administrator",
  "module": "Aabha Homes",
  "name": "Material Consumption Entry",
