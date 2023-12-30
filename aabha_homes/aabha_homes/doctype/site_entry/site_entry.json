@@ -18,6 +18,7 @@
   "naming_series",
   "posting_date",
   "project_details_section",
+  "skip_site_worker_assignment",
   "cost_center",
   "column_break_bwsl",
   "work_details",
@@ -135,7 +136,8 @@
    "fieldtype": "Currency",
    "in_list_view": 1,
    "label": "Gross Pay",
-   "options": "Currency"
+   "options": "Currency",
+   "read_only": 1
   },
   {
    "fieldname": "work_details",
@@ -157,12 +159,18 @@
    "label": "Site Worker Assignment",
    "options": "Site Worker Assignment",
    "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "skip_site_worker_assignment",
+   "fieldtype": "Check",
+   "label": "Skip Site Worker Assignment"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2023-12-09 18:01:37.944106",
+ "modified": "2023-12-30 20:54:19.769686",
  "modified_by": "Administrator",
  "module": "Aabha Homes",
  "name": "Site Entry",
