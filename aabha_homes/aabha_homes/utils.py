@@ -216,3 +216,26 @@ def get_bin_stock_list(doc, warehouse):
 		else:
 			item["available_qty"] = 0
 	return doc
+
+@frappe.whitelist()
+def get_wage_structure_details(employee, postingDate):
+	ws_doc = frappe.db.sql("""
+			SELECT
+				name,
+				basic_amount,
+				worker_name,
+				basic_amount as net_pay,
+				normal_working_hours,
+				overtime_factor
+			FROM 
+				`tabWage Structure` WS
+			WHERE
+				worker_name = '{0}' and
+				docstatus = 1 and
+				as_on_date <= '{1}'
+			ORDER BY
+				as_on_date DESC
+			LIMIT 1
+		""".format(employee, postingDate),
+		as_dict=True)
+	return ws_doc
