@@ -9,6 +9,7 @@
  "field_order": [
   "wages_settings_section",
   "wages_payable_account",
+  "wages_advance",
   "column_break_etsy",
   "wages_expense_account"
  ],
@@ -33,12 +34,18 @@
    "fieldtype": "Link",
    "label": "Wages Expense Account",
    "options": "Account"
+  },
+  {
+   "fieldname": "wages_advance",
+   "fieldtype": "Link",
+   "label": "Wages Advance",
+   "options": "Account"
   }
  ],
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2023-11-17 10:05:04.374774",
+ "modified": "2024-01-04 12:53:08.824529",
  "modified_by": "Administrator",
  "module": "Aabha Homes",
  "name": "Aabha Homes Settings",

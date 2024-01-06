@@ -28,7 +28,7 @@ app_license = "mit"
 # page_js = {"page" : "public/js/file.js"}
 
 # include js in doctype views
-# doctype_js = {"doctype" : "public/js/doctype.js"}
+doctype_js = {"Material Request" : "public/js/material_request.js"}
 # doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
 # doctype_calendar_js = {"doctype" : "public/js/doctype_calendar.js"}
@@ -123,9 +123,10 @@ app_license = "mit"
 # Hook on document methods and events
 
 # doc_events = {
-#     "Purchase Receipt": {
-#         "before_save": "aabha_homes.aabha_homes.utils.get_bin_stock_list"
+#     "Journal Entry": {
+#         "on_cancel": "aabha_homes.aabha_homes.utils.validate_je_cancel"
 #     }
+# }
 #	"*": {
 #		"on_update": "method",
 #		"on_cancel": "method",
@@ -233,7 +234,11 @@ fixtures = [
                     "Employee-custom_is_supervisor",
                     "Employee-custom_is_worker",
                     "Employee-custom_employee_state",
-                    "Stock Entry-custom_material_consumption_entry"
+                    "Stock Entry-custom_material_consumption_entry",
+                    "Employee-petty_cash_account",
+                    "Journal Entry-petty_cash_request",
+                    "Material Request-custom_site_supervisor",
+                    "Material Request-custom_cost_center"
                 ]
             ]
         ]

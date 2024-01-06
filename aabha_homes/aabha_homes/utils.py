@@ -86,7 +86,22 @@ def get_total_emp_wages(costCenter):
 			if d.get("previous_balance"):
 				d["original_net_pay"] = d.get("net_pay") + d.get("previous_balance")
 				d["net_pay"] = d.get("net_pay") + d.get("previous_balance")
-
+		
+		total_advance = frappe.db.sql("""
+			SELECT 
+				SUM(advance_amount) as advance_amount
+			FROM
+				`tabWages Advance` WA
+			WHERE
+				WA.cost_center = "{0}" AND
+				WA.status != "Paid" AND
+				WA.worker_name = "{1}" AND
+				WA.docstatus = 1
+			""".format(costCenter, d.workers_name),
+			as_dict=True)
+		if total_advance:
+			d.update(total_advance[0])
+			d["net_pay"] = d["net_pay"] - (d["advance_amount"] or 0)
 	data_split = frappe.db.sql("""
 		SELECT 
 			WD.worker_name as workers_name,
@@ -239,3 +254,13 @@ def get_wage_structure_details(employee, postingDate):
 		""".format(employee, postingDate),
 		as_dict=True)
 	return ws_doc
+
+def validate_je_cancel(doc, method=None):
+	if (doc.cheque_no):
+		wa =  frappe.db.exists("Wages Advance", {"name": doc.cheque_no})
+		sw =  frappe.db.exists("Site Wages", {"name": doc.cheque_no})
+		if wa:
+			frappe.throw("Cannot cancel; linked with Wages Advance <b>{0}</b>".format(wa))
+		elif sw:
+			frappe.throw("Cannot cancel; linked with Site Wages <b>{0}</b>".format(sw))
+

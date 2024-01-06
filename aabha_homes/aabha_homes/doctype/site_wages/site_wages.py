@@ -34,6 +34,16 @@ class SiteWages(Document):
 				wwb_doc = frappe.get_doc("Workers Wages Balance", wwb)
 				wwb_doc.balance_amount = row.previous_balance
 				wwb_doc.save(ignore_permissions=True)
+		advance_list = frappe.db.get_list(
+			"Wages Advance",
+			{"site_wages":self.name, "cost_center": self.cost_center},
+			pluck="name",
+			ignore_permissions=True
+		)
+		if advance_list:
+			for al in advance_list:
+				frappe.db.set_value("Wages Advance", al, "status", "Submitted")
+				frappe.db.set_value("Wages Advance", al, "site_wages", "")
 				
 	def create_je(self):
 		je_doc = frappe.new_doc("Journal Entry")
@@ -42,22 +52,39 @@ class SiteWages(Document):
 		je_doc.cheque_no = self.name
 		je_doc.cheque_date = self.posting_date
 		emp_list = frappe.db.get_all("Site Wages Details", {"parent": self.name},
-		["workers_name as party", "net_pay as credit_in_account_currency"])
+		["workers_name as party", "net_pay as credit_in_account_currency", "advance_amount"])
 		credit_acc = frappe.db.get_single_value("Aabha Homes Settings", "wages_payable_account")
 		debit_acc = frappe.db.get_single_value("Aabha Homes Settings", "wages_expense_account")
 		debit_amount = frappe.db.get_value("Site Wages Details", 
 		{"parent":self.name}, ["SUM(net_pay)"])
 		if not credit_acc or not debit_acc:
 			frappe.throw("Please Setup Aabha Homes Settings")
+		total_advance_amount = 0
 		if emp_list:
 			for emp in emp_list:
 				emp["party_type"] = "Employee"
 				emp["account"] = credit_acc
 				emp["cost_center"] = self.cost_center
 				je_doc.append("accounts", emp)
+
+				if emp.get("advance_amount"):
+					emp["account"] = frappe.db.get_single_value("Aabha Homes Settings", "wages_advance")
+					emp["credit_in_account_currency"] = emp.get("advance_amount")
+					je_doc.append("accounts", emp)
+					total_advance_amount += emp.get("advance_amount")
+					advance_list = frappe.db.get_list(
+						"Wages Advance",
+						{"worker_name":emp.get("party"), "status":["!=", "Paid"], "docstatus":1, "cost_center":self.cost_center},
+						pluck="name",
+						ignore_permissions=True
+					)
+					if advance_list:
+						for al in advance_list:
+							frappe.db.set_value("Wages Advance", al, "status", "Paid")
+							frappe.db.set_value("Wages Advance", al, "site_wages", self.name)
 			je_doc.append("accounts", {
 				"account": debit_acc, 
-				"debit_in_account_currency": debit_amount, 
+				"debit_in_account_currency": debit_amount + total_advance_amount, 
 				"cost_center": self.cost_center
 			})
 		je_doc.save(ignore_permissions=True)
