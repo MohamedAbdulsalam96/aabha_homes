@@ -7,18 +7,17 @@ frappe.ui.form.on('Petty Cash Request', {
         cur_frm.refresh_field("agent_outstanding_amount")
     },
 	refresh: function(frm) {
-        document.querySelectorAll("[data-doctype='Journal Entry']")[1].style.display ="none";
+        // document.querySelectorAll("[data-doctype='Journal Entry']")[1].style.display ="none";
 
 	    var show = false
         frappe.call({
-            method: "service_pro.service_pro.doctype.petty_cash_request.petty_cash_request.get_jv",
+            method: "aabha_homes.aabha_homes.doctype.petty_cash_request.petty_cash_request.get_jv",
             args:{
                 name: cur_frm.doc.name
             },
             async: false,
             callback: function (r) {
                 show = r.message
-                console.log(r.message)
             }
         })
         console.log(show)
@@ -30,12 +29,21 @@ frappe.ui.form.on('Petty Cash Request', {
                         args: {},
                         freeze: true,
                         freeze_message: "Generating Journal Entry...",
-                        callback: (r) => {
+                        callback: (r) => {ench
                             cur_frm.reload_doc()
                                 frappe.set_route("Form", "Journal Entry", r.message);
                         }
                 })
             }, "Generate")
         }
+	},
+    onload(frm) {
+        frm.set_query('employee', function(frm){
+            return{
+                filters:{
+                    custom_is_supervisor:1
+                }
+            }
+        })
 	}
 });
