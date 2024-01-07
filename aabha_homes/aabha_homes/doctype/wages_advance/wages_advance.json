@@ -80,7 +80,8 @@
    "fieldname": "cost_center",
    "fieldtype": "Link",
    "label": "Cost Center ( Project )",
-   "options": "Cost Center"
+   "options": "Cost Center",
+   "reqd": 1
   },
   {
    "fieldname": "accounting_section",
@@ -143,7 +144,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-01-06 10:58:00.774899",
+ "modified": "2024-01-07 15:19:58.518684",
  "modified_by": "Administrator",
  "module": "Aabha Homes",
  "name": "Wages Advance",
