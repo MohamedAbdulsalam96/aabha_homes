@@ -140,8 +140,9 @@
   },
   {
    "fieldname": "work_details",
-   "fieldtype": "Data",
+   "fieldtype": "Link",
    "label": "Work Details",
+   "options": "Work Details",
    "reqd": 1
   },
   {
@@ -169,7 +170,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2023-12-31 13:58:11.365037",
+ "modified": "2024-05-20 10:26:40.451695",
  "modified_by": "Administrator",
  "module": "Aabha Homes",
  "name": "Site Entry",
