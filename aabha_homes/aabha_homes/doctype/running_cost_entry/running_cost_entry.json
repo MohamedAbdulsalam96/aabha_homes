@@ -1,0 +1,193 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-05-20 13:16:30.103861",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_ncl3",
+  "company",
+  "column_break_pjjx",
+  "date",
+  "section_break_exdc",
+  "get_gl_entry",
+  "column_break_cdxd",
+  "section_break_xckp",
+  "running_cost_gl_item",
+  "section_break_snpb",
+  "column_break_xsuk",
+  "column_break_cyns",
+  "total_project_amount",
+  "section_break_zxrv",
+  "running_cost_project_item",
+  "running_cost_tab",
+  "section_break_uaoa",
+  "get_running_cost",
+  "column_break_dbxt",
+  "running_cost_head",
+  "running_cost_expense",
+  "section_break_tykh",
+  "running_cost_item",
+  "section_break_askn",
+  "column_break_yyny",
+  "column_break_ibuq",
+  "total_running_cost"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_ncl3",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Company",
+   "options": "Company",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_pjjx",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Today",
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Date"
+  },
+  {
+   "fieldname": "section_break_exdc",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "get_gl_entry",
+   "fieldtype": "Button",
+   "label": "Get GL Entry"
+  },
+  {
+   "fieldname": "column_break_cdxd",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_xckp",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "running_cost_gl_item",
+   "fieldtype": "Table",
+   "label": "Running Cost ",
+   "options": "Running Cost GL Item"
+  },
+  {
+   "fieldname": "section_break_snpb",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_xsuk",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_cyns",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "total_project_amount",
+   "fieldtype": "Currency",
+   "label": "Total Project Amount"
+  },
+  {
+   "fieldname": "section_break_zxrv",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "running_cost_project_item",
+   "fieldtype": "Table",
+   "label": "Running Cost Project Item",
+   "options": "Running Cost Project Item"
+  },
+  {
+   "fieldname": "section_break_uaoa",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "get_running_cost",
+   "fieldtype": "Button",
+   "label": "Get Running Cost"
+  },
+  {
+   "fieldname": "column_break_dbxt",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "running_cost_head",
+   "fieldtype": "Link",
+   "label": "Running Cost Asset ",
+   "options": "Account"
+  },
+  {
+   "fieldname": "running_cost_item",
+   "fieldtype": "Table",
+   "label": "Running Cost Item",
+   "options": "Running Cost Item"
+  },
+  {
+   "fieldname": "running_cost_tab",
+   "fieldtype": "Tab Break",
+   "label": "Running Cost"
+  },
+  {
+   "fieldname": "section_break_tykh",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "section_break_askn",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_yyny",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_ibuq",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "total_running_cost",
+   "fieldtype": "Currency",
+   "label": "Total Running Cost"
+  },
+  {
+   "fieldname": "running_cost_expense",
+   "fieldtype": "Link",
+   "label": "Running Cost Expense",
+   "options": "Account"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2024-05-20 13:42:14.074078",
+ "modified_by": "Administrator",
+ "module": "Aabha Homes",
+ "name": "Running Cost Entry",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

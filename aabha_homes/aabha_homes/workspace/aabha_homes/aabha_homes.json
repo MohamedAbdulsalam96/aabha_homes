@@ -1,6 +1,6 @@
 {
  "charts": [],
- "content": "[{\"id\":\"HUYP7mKthH\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Aabha Homes</span>\",\"col\":12}},{\"id\":\"ebdJ6Eta7C\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Site Worker Assignment\",\"col\":3}},{\"id\":\"yV5o4c1Pjt\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Site Entry\",\"col\":3}},{\"id\":\"OgEE10M6NA\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Subcontracting Entry\",\"col\":3}},{\"id\":\"kzy0DWZMrW\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Site Wages\",\"col\":3}},{\"id\":\"LpJajwJcvx\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Workers Wages Balance\",\"col\":3}},{\"id\":\"3nZLh4g0V6\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Material Consumption Entry\",\"col\":3}},{\"id\":\"X8AKVMwat_\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Material Request\",\"col\":3}},{\"id\":\"TOPEptmaP1\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Purchase Receipt\",\"col\":3}},{\"id\":\"htxTb6Wz4g\",\"type\":\"card\",\"data\":{\"card_name\":\"Purchase\",\"col\":4}},{\"id\":\"xux7k-cFmy\",\"type\":\"card\",\"data\":{\"card_name\":\"Sales\",\"col\":4}},{\"id\":\"rCs39QUo2c\",\"type\":\"card\",\"data\":{\"card_name\":\"Settings\",\"col\":4}},{\"id\":\"HYmCAalkx0\",\"type\":\"card\",\"data\":{\"card_name\":\"Payroll\",\"col\":4}},{\"id\":\"d2bn6neHyZ\",\"type\":\"card\",\"data\":{\"card_name\":\"Masters\",\"col\":4}},{\"id\":\"zntSZJVwbL\",\"type\":\"card\",\"data\":{\"card_name\":\"Estimate\",\"col\":4}},{\"id\":\"tmzaeD_opA\",\"type\":\"card\",\"data\":{\"card_name\":\"Petty Cash & Advance\",\"col\":4}}]",
+ "content": "[{\"id\":\"HUYP7mKthH\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Aabha Homes</span>\",\"col\":12}},{\"id\":\"ebdJ6Eta7C\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Site Worker Assignment\",\"col\":3}},{\"id\":\"yV5o4c1Pjt\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Site Entry\",\"col\":3}},{\"id\":\"OgEE10M6NA\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Subcontracting Entry\",\"col\":3}},{\"id\":\"kzy0DWZMrW\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Site Wages\",\"col\":3}},{\"id\":\"LpJajwJcvx\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Workers Wages Balance\",\"col\":3}},{\"id\":\"3nZLh4g0V6\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Material Consumption Entry\",\"col\":3}},{\"id\":\"X8AKVMwat_\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Material Request\",\"col\":3}},{\"id\":\"TOPEptmaP1\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Purchase Receipt\",\"col\":3}},{\"id\":\"htxTb6Wz4g\",\"type\":\"card\",\"data\":{\"card_name\":\"Purchase\",\"col\":4}},{\"id\":\"xux7k-cFmy\",\"type\":\"card\",\"data\":{\"card_name\":\"Sales\",\"col\":4}},{\"id\":\"rCs39QUo2c\",\"type\":\"card\",\"data\":{\"card_name\":\"Settings\",\"col\":4}},{\"id\":\"HYmCAalkx0\",\"type\":\"card\",\"data\":{\"card_name\":\"Payroll\",\"col\":4}},{\"id\":\"d2bn6neHyZ\",\"type\":\"card\",\"data\":{\"card_name\":\"Masters\",\"col\":4}},{\"id\":\"zntSZJVwbL\",\"type\":\"card\",\"data\":{\"card_name\":\"Estimate\",\"col\":4}},{\"id\":\"tmzaeD_opA\",\"type\":\"card\",\"data\":{\"card_name\":\"Petty Cash & Advance\",\"col\":4}},{\"id\":\"YiFNtdfkAG\",\"type\":\"card\",\"data\":{\"card_name\":\"Running Cost\",\"col\":4}}]",
  "creation": "2023-11-15 22:39:41.841020",
  "custom_blocks": [],
  "docstatus": 0,
@@ -488,9 +488,28 @@
    "link_type": "DocType",
    "onboard": 0,
    "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Running Cost",
+   "link_count": 1,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Running Cost Entry",
+   "link_count": 0,
+   "link_to": "Running Cost Entry",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
   }
  ],
- "modified": "2023-12-31 17:31:50.173954",
+ "modified": "2024-05-20 14:00:24.415235",
  "modified_by": "Administrator",
  "module": "Aabha Homes",
  "name": "Aabha Homes",

@@ -11,7 +11,11 @@
   "wages_payable_account",
   "wages_advance",
   "column_break_etsy",
-  "wages_expense_account"
+  "wages_expense_account",
+  "running_cost_section",
+  "default_running_cost_assets",
+  "column_break_dfma",
+  "default_running_cost_expense"
  ],
  "fields": [
   {
@@ -40,12 +44,33 @@
    "fieldtype": "Link",
    "label": "Wages Advance",
    "options": "Account"
+  },
+  {
+   "fieldname": "running_cost_section",
+   "fieldtype": "Section Break",
+   "label": "Running Cost"
+  },
+  {
+   "fieldname": "default_running_cost_assets",
+   "fieldtype": "Link",
+   "label": "Default Running Cost Asset",
+   "options": "Account"
+  },
+  {
+   "fieldname": "column_break_dfma",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "default_running_cost_expense",
+   "fieldtype": "Link",
+   "label": "Default Running Cost Expense",
+   "options": "Account"
   }
  ],
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2024-01-04 12:53:08.824529",
+ "modified": "2024-05-20 13:15:56.964777",
  "modified_by": "Administrator",
  "module": "Aabha Homes",
  "name": "Aabha Homes Settings",
