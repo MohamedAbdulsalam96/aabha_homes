@@ -69,7 +69,7 @@ frappe.ui.form.on("Workers Details", {
             basic_amount = row.basic_amount/2
         }
         row.overtime_amount = (row.basic_amount/row.normal_working_hours) * row.overtime_factor * row.overtime
-        row.net_pay = row.overtime_amount + basic_amount
+        row.net_pay = row.overtime_amount + basic_amount + row.pa
         frm.refresh_field("workers_details")
     },
     half_day(frm, cdt, cdn){
@@ -77,11 +77,11 @@ frappe.ui.form.on("Workers Details", {
         if(row.half_day){
             let basic_amount = row.basic_amount/2
             row.overtime_amount = (row.basic_amount/row.normal_working_hours) * row.overtime_factor * row.overtime
-            row.net_pay = row.overtime_amount + basic_amount
+            row.net_pay = row.overtime_amount + basic_amount + row.pa
             frm.refresh_field("workers_details")
         }else{
             row.overtime_amount = (row.basic_amount/row.normal_working_hours) * row.overtime_factor * row.overtime
-            row.net_pay = row.overtime_amount + row.basic_amount
+            row.net_pay = row.overtime_amount + row.basic_amount + row.pa
             frm.refresh_field("workers_details")
         }
         frm.refresh_fields("workers_details")
@@ -105,5 +105,59 @@ frappe.ui.form.on("Workers Details", {
                 }
             })
         }
+    },
+    ta(frm, cdt, cdn){
+        let row = locals[cdt][cdn]
+        if(row.below_half_day){
+            row.net_pay = row.below_half_day_amount + row.ta
+        }
+        else if(!row.below_half_day){
+            if(row.half_day){
+                let basic_amount = row.basic_amount/2
+                row.overtime_amount = (row.basic_amount/row.normal_working_hours) * row.overtime_factor * row.overtime
+                row.net_pay = row.overtime_amount + basic_amount + row.ta
+            }else{
+                row.overtime_amount = (row.basic_amount/row.normal_working_hours) * row.overtime_factor * row.overtime
+                row.net_pay = row.overtime_amount + row.basic_amount + row.ta
+            }
+        }
+        frm.refresh_fields("workers_details")
+    },
+    below_half_day(frm, cdt, cdn){
+        let row = locals[cdt][cdn]
+        if(row.below_half_day){
+            row.half_day = false
+            row.net_pay = 0
+            row.overtime = 0
+            row.overtime_amount = 0
+        }else{
+            row.below_half_day_amount = 0
+            if(row.half_day){
+                let basic_amount = row.basic_amount/2
+                row.overtime_amount = (row.basic_amount/row.normal_working_hours) * row.overtime_factor * row.overtime
+                row.net_pay = row.overtime_amount + basic_amount + row.ta
+            }else{
+                row.overtime_amount = (row.basic_amount/row.normal_working_hours) * row.overtime_factor * row.overtime
+                row.net_pay = row.overtime_amount + row.basic_amount + row.ta
+            }
+        }
+        frm.refresh_fields("workers_details")
+    },
+    below_half_day_amount(frm, cdt, cdn){
+        let row = locals[cdt][cdn]
+        if(row.below_half_day){
+            row.net_pay = row.below_half_day_amount + row.ta
+        }
+        else if(!row.below_half_day){
+            if(row.half_day){
+                let basic_amount = row.basic_amount/2
+                row.overtime_amount = (row.basic_amount/row.normal_working_hours) * row.overtime_factor * row.overtime
+                row.net_pay = row.overtime_amount + basic_amount + row.ta
+            }else{
+                row.overtime_amount = (row.basic_amount/row.normal_working_hours) * row.overtime_factor * row.overtime
+                row.net_pay = row.overtime_amount + row.basic_amount + row.ta
+            }
+        }
+        frm.refresh_fields("workers_details")
     }
 })
