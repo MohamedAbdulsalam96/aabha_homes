@@ -69,7 +69,7 @@ frappe.ui.form.on("Workers Details", {
             basic_amount = row.basic_amount/2
         }
         row.overtime_amount = (row.basic_amount/row.normal_working_hours) * row.overtime_factor * row.overtime
-        row.net_pay = row.overtime_amount + basic_amount + row.pa
+        row.net_pay = row.overtime_amount + basic_amount + row.ta
         frm.refresh_field("workers_details")
     },
     half_day(frm, cdt, cdn){
@@ -77,11 +77,11 @@ frappe.ui.form.on("Workers Details", {
         if(row.half_day){
             let basic_amount = row.basic_amount/2
             row.overtime_amount = (row.basic_amount/row.normal_working_hours) * row.overtime_factor * row.overtime
-            row.net_pay = row.overtime_amount + basic_amount + row.pa
+            row.net_pay = row.overtime_amount + basic_amount + row.ta
             frm.refresh_field("workers_details")
         }else{
             row.overtime_amount = (row.basic_amount/row.normal_working_hours) * row.overtime_factor * row.overtime
-            row.net_pay = row.overtime_amount + row.basic_amount + row.pa
+            row.net_pay = row.overtime_amount + row.basic_amount + row.ta
             frm.refresh_field("workers_details")
         }
         frm.refresh_fields("workers_details")
