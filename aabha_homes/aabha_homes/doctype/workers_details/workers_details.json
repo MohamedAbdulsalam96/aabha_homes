@@ -12,12 +12,12 @@
   "overtime_amount",
   "half_day",
   "below_half_day",
-  "custom_net_pay",
+  "below_half_day_amount",
   "net_pay",
   "normal_working_hours",
   "overtime_factor",
   "column_break_vczz",
-  "pa"
+  "ta"
  ],
  "fields": [
   {
@@ -88,21 +88,21 @@
    "fieldtype": "Column Break"
   },
   {
-   "fieldname": "pa",
+   "depends_on": "eval:doc.below_half_day == 1;",
+   "fieldname": "below_half_day_amount",
    "fieldtype": "Currency",
-   "label": "PA"
+   "label": "Below Half Day Amount"
   },
   {
-   "depends_on": "eval:doc.below_half_day == 1;",
-   "fieldname": "custom_net_pay",
+   "fieldname": "ta",
    "fieldtype": "Currency",
-   "label": "Custom Net Pay"
+   "label": "TA"
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2024-05-22 08:52:55.070285",
+ "modified": "2024-05-22 09:56:45.852575",
  "modified_by": "Administrator",
  "module": "Aabha Homes",
  "name": "Workers Details",
