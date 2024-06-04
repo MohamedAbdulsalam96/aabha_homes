@@ -238,7 +238,8 @@ fixtures = [
                     "Employee-petty_cash_account",
                     "Journal Entry-petty_cash_request",
                     "Material Request-custom_site_supervisor",
-                    "Material Request-custom_cost_center"
+                    "Material Request-custom_cost_center",
+                    "Account-custom_is_running_cost"
                 ]
             ]
         ]
