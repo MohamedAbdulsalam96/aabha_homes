@@ -2,7 +2,7 @@
 # For license information, please see license.txt
 
 import frappe
-from datetime import datetime
+from datetime import datetime, date
 from frappe.model.document import Document
 
 
@@ -131,3 +131,27 @@ class RunningCostEntry(Document):
 
 		return {"total_running_cost": total_running_cost, "rc_gl_list": rc_gl_list}
 
+	def on_submit(self):
+		if not self.running_cost_head or not self.running_cost_expense:
+			frappe.throw("Running Cost Asset and Expense accounts are mandatory!")
+		je_doc = frappe.new_doc("Journal Entry")
+		je_doc.cheque_no = self.name
+		je_doc.posting_date = date.today()
+		je_doc.cheque_date = date.today()
+		if not self.running_cost_project_item:
+			frappe.throw("No running cost prject item found!")
+		for item in self.running_cost_project_item:
+			je_doc.append("accounts", {
+					"account": self.running_cost_head,
+					"cost_center": item.project_cost_center,
+					"credit_in_account_currency": item.running_project_amount
+				}
+			)
+			je_doc.append("accounts", {
+				"account": self.running_cost_expense,
+				"cost_center": item.project_cost_center,
+				"debit_in_account_currency": item.running_project_amount
+			})
+		je_doc.insert()
+		je_doc.submit()
+		frappe.msgprint("Journal Entry {0} created.".format(je_doc.name))

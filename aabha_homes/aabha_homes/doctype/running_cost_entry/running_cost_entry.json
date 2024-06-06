@@ -1,6 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "format:RCE-{YY}-{MM}-{####}",
  "creation": "2024-05-20 13:16:30.103861",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -31,7 +32,8 @@
   "section_break_askn",
   "column_break_yyny",
   "column_break_ibuq",
-  "total_running_cost"
+  "total_running_cost",
+  "amended_from"
  ],
  "fields": [
   {
@@ -162,15 +164,26 @@
    "fieldtype": "Link",
    "label": "Running Cost Expense",
    "options": "Account"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Running Cost Entry",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-05-20 13:42:14.074078",
+ "modified": "2024-06-06 08:13:20.792925",
  "modified_by": "Administrator",
  "module": "Aabha Homes",
  "name": "Running Cost Entry",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {
