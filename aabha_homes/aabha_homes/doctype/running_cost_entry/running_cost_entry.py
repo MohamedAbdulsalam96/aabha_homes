@@ -8,9 +8,31 @@ from frappe.model.document import Document
 
 class RunningCostEntry(Document):
 	@frappe.whitelist()
-	def get_gl_entry(self):
+	def get_gl_entry(self, gl_list=None):
+		filters = ""
+		rcgl_list = frappe.db.get_list(
+			"Running Cost GL Item",
+			{
+				"docstatus": 1,
+				"parenttype": "Running Cost Entry"
+			},
+			[
+				"gl_entry"
+			],
+			pluck="gl_entry",
+			ignore_permissions=True
+		)
+		if len(rcgl_list) == 1:
+			filters += "AND GLE.name != '{0}'".format(rcgl_list[0])
+		elif len(rcgl_list) > 1:
+			filters += "AND GLE.name NOT IN {0}".format(tuple(rcgl_list))
 		if not self.date:
-			return
+			frappe.throw("Date is mandatory!")
+		if gl_list:
+			if len(gl_list) == 1:
+				filters += "AND GLE.name = '{0}'".format(gl_list[0])
+			elif len(gl_list) > 1:
+				filters += "AND GLE.name IN {0}".format(tuple(gl_list))
 		gl_list = frappe.db.sql("""
 			SELECT 
 				GLE.name as gl_entry,
@@ -27,8 +49,10 @@ class RunningCostEntry(Document):
 				MONTH(GLE.posting_date) = {month} AND
 				GLE.debit > 0.00 AND
 				ACC.custom_is_running_cost != 1
+				{filters}
 		""".format(
-			month=datetime.strptime(self.date, "%Y-%m-%d").month
+			month=datetime.strptime(self.date, "%Y-%m-%d").month,
+			filters=filters
 		), as_dict=True)
 
 		total_debit_amount = frappe.db.sql("""
@@ -43,8 +67,10 @@ class RunningCostEntry(Document):
 			WHERE 
 				MONTH(GLE.posting_date) = {month} AND
 				ACC.custom_is_running_cost != 1
+				{filters}
 		""".format(
-			month=datetime.strptime(self.date, "%Y-%m-%d").month
+			month=datetime.strptime(self.date, "%Y-%m-%d").month,
+			filters=filters
 		), as_dict=True)
 
 		total_running_cost = frappe.db.sql("""
@@ -60,7 +86,8 @@ class RunningCostEntry(Document):
 				MONTH(GLE.posting_date) = {month} AND
 				ACC.custom_is_running_cost = 1
 		""".format(
-			month=datetime.strptime(self.date, "%Y-%m-%d").month
+			month=datetime.strptime(self.date, "%Y-%m-%d").month,
+			filters=filters
 		), as_dict=True)
 		cost_center_wise_debit = 0
 		cost_center_wise_debit = frappe.db.sql("""
@@ -81,12 +108,14 @@ class RunningCostEntry(Document):
 				MONTH(GLE.posting_date) = {month} AND
 				GLE.debit > 0.00 AND
 				ACC.custom_is_running_cost != 1
+				{filters}
 			GROUP BY
 				GLE.cost_center
 		""".format(
 			month=datetime.strptime(self.date, "%Y-%m-%d").month,
 			tpc = total_debit_amount[0].total_debit_amount or 0,
-			trc = total_running_cost[0].total_running_cost or 0
+			trc = total_running_cost[0].total_running_cost or 0,
+			filters = filters
 		), as_dict=True)
 		return {"gl_list": gl_list, "total_debit_amount": total_debit_amount, "cost_center_wise_debit":cost_center_wise_debit}
 
@@ -136,8 +165,9 @@ class RunningCostEntry(Document):
 			frappe.throw("Running Cost Asset and Expense accounts are mandatory!")
 		je_doc = frappe.new_doc("Journal Entry")
 		je_doc.cheque_no = self.name
-		je_doc.posting_date = date.today()
-		je_doc.cheque_date = date.today()
+		je_doc.custom_running_cost_entry = self.name
+		je_doc.posting_date = self.date
+		je_doc.cheque_date = self.date
 		if not self.running_cost_project_item:
 			frappe.throw("No running cost prject item found!")
 		for item in self.running_cost_project_item:
@@ -155,3 +185,8 @@ class RunningCostEntry(Document):
 		je_doc.insert()
 		je_doc.submit()
 		frappe.msgprint("Journal Entry {0} created.".format(je_doc.name))
+
+	def on_cancel(self):
+		je = frappe.db.exists("Journal Entry", {"cheque_no": self.name, "docstatus": 1})
+		if je:
+			frappe.throw("Linked with journal entry {0}. Cannot cancel!".format(je))
