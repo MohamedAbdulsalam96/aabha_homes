@@ -58,8 +58,7 @@
    "fieldtype": "Currency",
    "in_list_view": 1,
    "label": "Net Pay",
-   "options": "Currency",
-   "read_only": 1
+   "options": "Currency"
   },
   {
    "columns": 2,
@@ -108,7 +107,7 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2024-01-04 16:12:12.596568",
+ "modified": "2024-06-07 13:50:03.124767",
  "modified_by": "Administrator",
  "module": "Aabha Homes",
  "name": "Site Wages Details",
