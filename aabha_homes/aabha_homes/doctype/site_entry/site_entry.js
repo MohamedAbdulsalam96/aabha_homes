@@ -65,23 +65,26 @@ frappe.ui.form.on("Workers Details", {
     overtime(frm, cdt, cdn){
         let row = locals[cdt][cdn]
         let basic_amount = row.basic_amount
+        let ta = row.ta || 0.0
         if(row.half_day){
             basic_amount = row.basic_amount/2
         }
         row.overtime_amount = (row.basic_amount/row.normal_working_hours) * row.overtime_factor * row.overtime
-        row.net_pay = row.overtime_amount + basic_amount + row.ta
+        row.net_pay = row.overtime_amount + basic_amount + ta
         frm.refresh_field("workers_details")
     },
     half_day(frm, cdt, cdn){
         let row = locals[cdt][cdn]
+        let ta = row.ta || 0.0
+        let overtime_amount = row.overtime_amount || 0.0
         if(row.half_day){
             let basic_amount = row.basic_amount/2
             row.overtime_amount = (row.basic_amount/row.normal_working_hours) * row.overtime_factor * row.overtime
-            row.net_pay = row.overtime_amount + basic_amount + row.ta
+            row.net_pay = overtime_amount + basic_amount + ta
             frm.refresh_field("workers_details")
         }else{
             row.overtime_amount = (row.basic_amount/row.normal_working_hours) * row.overtime_factor * row.overtime
-            row.net_pay = row.overtime_amount + row.basic_amount + row.ta
+            row.net_pay = overtime_amount + row.basic_amount + ta
             frm.refresh_field("workers_details")
         }
         frm.refresh_fields("workers_details")
@@ -108,17 +111,19 @@ frappe.ui.form.on("Workers Details", {
     },
     ta(frm, cdt, cdn){
         let row = locals[cdt][cdn]
+        let ta = row.ta || 0.0
+        let overtime = row.overtime || 0.0
         if(row.below_half_day){
             row.net_pay = row.below_half_day_amount + row.ta
         }
         else if(!row.below_half_day){
             if(row.half_day){
                 let basic_amount = row.basic_amount/2
-                row.overtime_amount = (row.basic_amount/row.normal_working_hours) * row.overtime_factor * row.overtime
-                row.net_pay = row.overtime_amount + basic_amount + row.ta
+                row.overtime_amount = (row.basic_amount/row.normal_working_hours) * row.overtime_factor * overtime
+                row.net_pay = row.overtime_amount + basic_amount + ta
             }else{
-                row.overtime_amount = (row.basic_amount/row.normal_working_hours) * row.overtime_factor * row.overtime
-                row.net_pay = row.overtime_amount + row.basic_amount + row.ta
+                row.overtime_amount = (row.basic_amount/row.normal_working_hours) * row.overtime_factor * overtime
+                row.net_pay = row.overtime_amount + row.basic_amount + ta
             }
         }
         frm.refresh_fields("workers_details")
@@ -131,31 +136,33 @@ frappe.ui.form.on("Workers Details", {
             row.overtime = 0
             row.overtime_amount = 0
         }else{
+            let ta = row.ta || 0.0
             row.below_half_day_amount = 0
             if(row.half_day){
                 let basic_amount = row.basic_amount/2
                 row.overtime_amount = (row.basic_amount/row.normal_working_hours) * row.overtime_factor * row.overtime
-                row.net_pay = row.overtime_amount + basic_amount + row.ta
+                row.net_pay = row.overtime_amount + basic_amount + ta
             }else{
                 row.overtime_amount = (row.basic_amount/row.normal_working_hours) * row.overtime_factor * row.overtime
-                row.net_pay = row.overtime_amount + row.basic_amount + row.ta
+                row.net_pay = row.overtime_amount + row.basic_amount + ta
             }
         }
         frm.refresh_fields("workers_details")
     },
     below_half_day_amount(frm, cdt, cdn){
         let row = locals[cdt][cdn]
+        let ta = row.ta || 0.0
         if(row.below_half_day){
-            row.net_pay = row.below_half_day_amount + row.ta
+            row.net_pay = row.below_half_day_amount + ta
         }
         else if(!row.below_half_day){
             if(row.half_day){
                 let basic_amount = row.basic_amount/2
                 row.overtime_amount = (row.basic_amount/row.normal_working_hours) * row.overtime_factor * row.overtime
-                row.net_pay = row.overtime_amount + basic_amount + row.ta
+                row.net_pay = row.overtime_amount + basic_amount + ta
             }else{
                 row.overtime_amount = (row.basic_amount/row.normal_working_hours) * row.overtime_factor * row.overtime
-                row.net_pay = row.overtime_amount + row.basic_amount + row.ta
+                row.net_pay = row.overtime_amount + row.basic_amount + ta
             }
         }
         frm.refresh_fields("workers_details")
