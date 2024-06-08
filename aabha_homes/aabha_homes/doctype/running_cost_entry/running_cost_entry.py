@@ -97,7 +97,7 @@ class RunningCostEntry(Document):
 				SUM(GLE.debit) AS project_amount,
 				GLE.cost_center AS project_cost_center,
 				(SUM(GLE.debit)/{tpc})*100 AS project_percentage,
-				(SUM(GLE.debit)/{tpc})*100 + {trc} AS running_project_amount
+				0 AS running_project_amount
 			FROM 
 				`tabGL Entry` GLE
 			INNER JOIN

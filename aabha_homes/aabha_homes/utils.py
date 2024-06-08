@@ -191,7 +191,7 @@ def create_wb_je(name, emp, amt, costCenter, refDate):
 		return False
 
 @frappe.whitelist()
-def make_material_consumption(source_name, target_doc=None):
+def make_material_consumption(source_name, target_doc=None, ignore_permissions=True):
 	doc = get_mapped_doc(
 		"Purchase Receipt",
 		source_name,
@@ -219,7 +219,7 @@ def get_bin_stock(item_code, warehouse):
 	return data
 
 @frappe.whitelist()
-def get_bin_stock_list(doc, warehouse):
+def get_bin_stock_list(doc, warehouse=None):
 	if doc:
 		doc = json.loads(doc)
 	for item in doc:

@@ -39,6 +39,14 @@ frappe.ui.form.on("Running Cost Entry", {
                 frm.refresh_field("running_cost_item")
                 frm.doc.total_running_cost = trc
                 frm.refresh_field("total_running_cost")
+                if(trc > 0){
+                    frappe.dom.freeze(__("Calculating running project amount..."))
+                    frm.doc.running_cost_project_item.forEach(item=>{
+                        item.running_project_amount = (trc * item.project_percentage)/100
+                    })
+                    frm.refresh_field("running_cost_project_item")
+                    frappe.dom.unfreeze();
+                }
             }
         })
     },
