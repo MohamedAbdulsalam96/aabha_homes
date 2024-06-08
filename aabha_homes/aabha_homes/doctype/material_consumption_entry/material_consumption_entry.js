@@ -5,7 +5,7 @@ frappe.ui.form.on("Material Consumption Entry", {
     refresh(frm){
         setTimeout(() => {
             frm.refresh_field("items")
-            if(frm.doc.material_consumption_details && frm.is_dirty()){
+            if(frm.doc.material_consumption_details && frm.is_dirty() && frm.doc.project_warehouse){
                 frappe.xcall("aabha_homes.aabha_homes.utils.get_bin_stock_list", {
                     doc: frm.doc.material_consumption_details,
                     warehouse: frm.doc.project_warehouse
